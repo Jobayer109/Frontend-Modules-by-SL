@@ -3,7 +3,7 @@ import React from "react";
 const JsonToJSX = () => {
   return (
     <div>
-      <h3>JSON to JSX</h3>
+      <h3 style={{ textAlign: "center", marginTop: "2rem" }}>JSON to JSX</h3>
     </div>
   );
 };
