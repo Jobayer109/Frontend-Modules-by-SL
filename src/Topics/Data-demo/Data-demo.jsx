@@ -2,10 +2,20 @@ import React from "react";
 import classes from "./Data-demo.module.css";
 
 const DataDemo = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.target.name.value);
+    console.log(e.target[1].value);
+    console.log(e.target[2].value);
+  };
+
   return (
     <div>
       <h2 style={{ margin: "2rem", textAlign: "center" }}>Simple form</h2>
-      <form style={{ width: "500px", margin: "0 auto" }}>
+      <form
+        onSubmit={handleSubmit}
+        style={{ width: "400px", margin: "0 auto" }}
+      >
         <div>
           <label>Your name</label>
           <input
