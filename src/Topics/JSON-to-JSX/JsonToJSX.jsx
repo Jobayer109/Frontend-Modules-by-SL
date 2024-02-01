@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const formFields = {
   name: {
@@ -16,6 +16,21 @@ const formFields = {
     label: "Your password",
     placeholder: "***********",
   },
+  phone: {
+    type: "number",
+    label: "Phone Number",
+    placeholder: "Phone number",
+  },
+};
+
+const transformObject = (obj) => {
+  return Object.keys(obj).reduce((acc, cur) => {
+    acc[cur] = {
+      ...obj[cur],
+      value: "",
+    };
+    return acc;
+  }, {});
 };
 
 // Make an array of object using "formData" object
@@ -23,23 +38,46 @@ const objToArrayFunc = (obj) => {
   return Object.keys(obj).map((key) => ({ name: key, ...obj[key] }));
 };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  console.log(e.target.value);
-};
-
 const JsonToJSX = () => {
-  const formData = objToArrayFunc(formFields);
+  const [formSate, setFormState] = useState(transformObject(formFields));
+  const formData = objToArrayFunc(formSate);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const values = Object.keys(formSate).reduce((acc, cur) => {
+      acc[cur] = formSate[cur].value;
+
+      return acc;
+    }, {});
+    console.log(values);
+  };
+
+  const handleChange = (e) => {
+    setFormState({
+      ...formSate,
+      [e.target.name]: {
+        ...formSate[e.target.name],
+        value: e.target.value,
+      },
+    });
+  };
+
   return (
     <div>
       <h3 style={{ textAlign: "center", marginTop: "2rem" }}>
         JSON to JSX (Form)
       </h3>
       <form onSubmit={handleSubmit}>
-        {formData.map(({ label, type, name, placeholder }, index) => (
+        {formData.map(({ label, type, name, value, placeholder }, index) => (
           <div key={index}>
             <label>{label}</label>
-            <input type={type} name={name} placeholder={placeholder} />
+            <input
+              type={type}
+              name={name}
+              value={value}
+              placeholder={placeholder}
+              onChange={handleChange}
+            />
           </div>
         ))}
         <div>
