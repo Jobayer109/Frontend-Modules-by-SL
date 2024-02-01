@@ -11,7 +11,9 @@ const DataDemo = () => {
 
   return (
     <div>
-      <h2 style={{ margin: "2rem", textAlign: "center" }}>Simple form</h2>
+      <h2 style={{ margin: "2rem", textAlign: "center" }}>
+        Simple Traditional form
+      </h2>
       <form
         onSubmit={handleSubmit}
         style={{ width: "400px", margin: "0 auto" }}
