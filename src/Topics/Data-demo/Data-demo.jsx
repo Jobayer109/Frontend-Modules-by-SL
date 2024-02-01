@@ -11,7 +11,15 @@ const DataDemo = () => {
 
   return (
     <div>
-      <h2 style={{ margin: "2rem", textAlign: "center" }}>
+      <h2
+        style={{
+          textAlign: "center",
+          margin: "2rem",
+          backgroundColor: "black",
+          color: "white",
+          padding: "10px",
+        }}
+      >
         Simple Traditional form
       </h2>
       <form

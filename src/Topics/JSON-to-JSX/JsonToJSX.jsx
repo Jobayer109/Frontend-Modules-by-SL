@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classes from "./Json.module.css";
 
 const formFields = {
   name: {
@@ -64,14 +65,26 @@ const JsonToJSX = () => {
 
   return (
     <div>
-      <h3 style={{ textAlign: "center", marginTop: "2rem" }}>
+      <h2
+        style={{
+          textAlign: "center",
+          margin: "2rem",
+          backgroundColor: "black",
+          color: "white",
+          padding: "10px",
+        }}
+      >
         JSON to JSX (Form)
-      </h3>
-      <form onSubmit={handleSubmit}>
+      </h2>
+      <form
+        onSubmit={handleSubmit}
+        style={{ width: "400px", margin: "0 auto" }}
+      >
         {formData.map(({ label, type, name, value, placeholder }, index) => (
           <div key={index}>
             <label>{label}</label>
             <input
+              className={classes.input}
               type={type}
               name={name}
               value={value}
@@ -81,7 +94,9 @@ const JsonToJSX = () => {
           </div>
         ))}
         <div>
-          <button type="submit">Submit</button>
+          <button className={classes.button} type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>
