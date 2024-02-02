@@ -1,12 +1,12 @@
 import "./App.css";
-import DataDemo from "./Topics/Data-demo/Data-demo";
-import JsonToJSX from "./Topics/JSON-to-JSX/JsonToJSX";
+import AdvanceForm from "./Topics/JsonToJSX-advanced/JsonToJSX";
 
 function App() {
   return (
     <div className="App">
-      <DataDemo />
-      <JsonToJSX />
+      {/* <DataDemo /> */}
+      {/* <JsonToJSX /> */}
+      <AdvanceForm />
     </div>
   );
 }
