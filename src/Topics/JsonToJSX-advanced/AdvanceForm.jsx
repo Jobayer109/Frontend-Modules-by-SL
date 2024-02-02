@@ -60,6 +60,7 @@ const AdvanceForm = () => {
               value={value}
               placeholder={placeholder}
               onChange={handleChange}
+              required
             />
           </div>
         ))}

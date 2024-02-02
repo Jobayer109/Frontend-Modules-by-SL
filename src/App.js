@@ -1,12 +1,13 @@
 import "./App.css";
-import AdvanceForm from "./Topics/JsonToJSX-advanced/AdvanceForm";
+import DynamicMainForm from "./Topics/Dynamic-Form/Dynamic-main";
 
 function App() {
   return (
     <div className="App">
+      <DynamicMainForm />
       {/* <DataDemo /> */}
       {/* <JsonToJSX /> */}
-      <AdvanceForm />
+      {/* <AdvanceForm /> */}
     </div>
   );
 }
