@@ -14,6 +14,16 @@ const formFields = {
     type: "password",
     placeholder: "*********",
   },
+  phone: {
+    label: "Phone",
+    type: "number",
+    placeholder: "+8801734053116",
+  },
+  birthDay: {
+    label: "Birth Date",
+    type: "date",
+    placeholder: "+8801734053116",
+  },
 };
 
 export default formFields;
