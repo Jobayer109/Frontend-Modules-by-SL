@@ -25,8 +25,8 @@ const formFields = {
     options: ["Bangladesh", "Pakistan", "India"],
   },
   checkbox: {
+    label: "Agree",
     type: "checkbox",
-    label: "Agree to Terms",
   },
 };
 

@@ -38,6 +38,8 @@ const DynamicMainForm = () => {
         value: e.target.type === "checkbox" ? e.target.checked : e.target.value,
       },
     });
+
+    console.log(e.target.value);
   };
 
   return (
@@ -76,9 +78,9 @@ const DynamicMainForm = () => {
               ) : (
                 <input
                   className={classes.input}
+                  value={value}
                   type={type}
                   name={name}
-                  value={value}
                   placeholder={placeholder}
                   onChange={handleChange}
                 />

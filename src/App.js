@@ -1,10 +1,11 @@
 import "./App.css";
-import DynamicMainForm from "./Topics/Dynamic-Form/Dynamic-main";
+import DynamicPracticeOne from "./Topics/Dynamic-Form/Dynamic-P1";
 
 function App() {
   return (
     <div className="App">
-      <DynamicMainForm />
+      <DynamicPracticeOne />
+      {/* <DynamicMainForm /> */}
       {/* <DataDemo /> */}
       {/* <JsonToJSX /> */}
       {/* <AdvanceForm /> */}
