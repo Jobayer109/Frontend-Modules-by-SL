@@ -1,30 +1,32 @@
 const formFields = {
   name: {
-    label: "Name",
     type: "text",
+    label: "Your name",
     placeholder: "Jobayer Ahmed",
   },
   email: {
-    label: "Email",
     type: "email",
+    label: "Your email",
     placeholder: "example@gmail.com",
   },
   password: {
-    label: "Password",
     type: "password",
-    placeholder: "*********",
+    label: "Your password",
+    placeholder: "***********",
   },
-
-  roles: {
+  phone: {
+    type: "number",
+    label: "Phone Number",
+    placeholder: "Phone number",
+  },
+  selectOption: {
     type: "select",
-    label: "Gender",
-    options: ["male", "female", "other"],
+    label: "Select country",
+    options: ["Bangladesh", "Pakistan", "India"],
   },
-
-  subscribe: {
+  checkbox: {
     type: "checkbox",
-    label: "Please subscribe",
-    checked: false, // Default value for checkbox
+    label: "Agree to Terms",
   },
 };
 
