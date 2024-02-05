@@ -1,0 +1,23 @@
+.container {
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.table__head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  padding: 0.5rem;
+}
+.btn__flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
