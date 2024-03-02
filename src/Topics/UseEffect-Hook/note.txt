@@ -1,0 +1,137 @@
+* What is useEffect ?
+    - এটি এমন একটি ইনভাইরনমেন্ট যেখান থেকে আমরা সরাসরি ডমের সাথে ডিল করতে পারি। 
+
+
+`useEffect` is a Hook in React that allows you to perform side effects in function components. Side effects are operations that can affect other components and cannot be done during rendering. These include data fetching, subscriptions, or manually changing the DOM from React components. `useEffect` serves as a replacement for lifecycle methods such as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` in class components, providing a unified API to handle side effects in function components.
+
+### Why We Need useEffect
+
+1. **Separation of Concerns**: Unlike lifecycle methods in class components, which are based on the component's lifecycle, `useEffect` allows you to organize side effects logically—not based on the lifecycle event. This makes your code more maintainable and easier to understand.
+
+2. **Data Fetching**: You can fetch data from an API and set it in the state of your component when the component mounts or when certain values change.
+
+3. **Subscriptions and Cleanups**: It provides a built-in way to set up and clean up subscriptions or listeners to avoid memory leaks.
+
+4. **Conditional Execution**: By specifying dependencies, you can control when your side effects run, reducing the number of unnecessary operations.
+
+5. **DOM Manipulations**: Though React generally discourages direct manipulation of the DOM, there are cases where it's necessary, and `useEffect` offers a way to do this after rendering.
+
+### Examples of useEffect
+
+**1. Fetching Data**
+
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function FetchDataComponent() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch('https://api.example.com/data')
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []); // The empty array means this effect runs once after the initial render
+
+  return (
+    <div>
+      {data.map(item => (
+        <div key={item.id}>{item.title}</div>
+      ))}
+    </div>
+  );
+}
+```
+
+**2. Adding and Removing Event Listeners**
+
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function ResizeComponent() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup function
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty array ensures this only runs on mount and unmount
+
+  return <div>Window width: {windowWidth}</div>;
+}
+```
+
+**3. Subscription to a Prop Value**
+
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function Timer({ start }) {
+  const [seconds, setSeconds] = useState(start);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds(prevSeconds => prevSeconds + 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [start]); // Effect depends on start prop
+
+  return <div>Seconds: {seconds}</div>;
+}
+```
+
+**4. Manipulating the DOM Directly**
+
+```jsx
+import React, { useEffect } from 'react';
+
+function TitleChangeComponent() {
+  useEffect(() => {
+    document.title = 'New Page Title'; // Change the document title
+
+    return () => {
+      document.title = 'Original Title'; // Reset title on cleanup
+    };
+  }, []); // Empty array means this runs once after mount
+
+  return <div>Check the document title.</div>;
+}
+```
+
+**5. Conditional Execution of Effects**
+
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function ConditionalEffectComponent({ userId }) {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    if (userId) {
+      fetch(`https://api.example.com/users/${userId}`)
+        .then(response => response.json())
+        .then(data => setUser(data));
+    }
+  }, [userId]); // Effect runs when userId changes
+
+  return (
+    <div>
+      {user ? <div>User name: {user.name}</div> : 'Loading...'}
+    </div>
+  );
+}
+```
+
+### Alternatives to useEffect
+
+While `useEffect` is versatile and powerful, React provides other hooks for more specific use cases:
+
+- **`useLayoutEffect`**: Similar to `useEffect`, but it fires synchronously after all DOM mutations. Use this if you need to directly measure or modify the DOM and want to ensure it happens before the browser paints.
+
+- **Custom Hooks**: You can create your own custom hooks that use `useEffect` internally for encapsulating and reusing side effect logic across components.
+
+- **Third-Party Libraries**: Libraries like Redux or MobX might reduce the need for `useEffect` in some cases, especially for global state management or complex logic, but they don't replace `useEffect` directly. They can, however, work alongside it to handle side effects related to state management more efficiently.
+
+`useEffect` is a fundamental hook for React function components, enabling developers to handle side effects cleanly and efficiently. Understanding its use cases, along with other hooks and patterns, is key to mastering React development.
