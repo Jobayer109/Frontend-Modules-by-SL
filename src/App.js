@@ -1,10 +1,11 @@
 import "./App.css";
-import ShoppingCart from "./Topics/Shopping-Cart";
+import UseEffectHook from "./Topics/UseEffect-Hook";
 
 function App() {
   return (
     <div className="App">
-      <ShoppingCart />
+      <UseEffectHook />
+      {/* <ShoppingCart /> */}
       {/* <DynamicPracticeOne /> */}
       {/* <DynamicMainForm /> */}
       {/* <DataDemo /> */}

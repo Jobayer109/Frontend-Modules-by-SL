@@ -22,7 +22,7 @@ const CartItem = ({
       <td>{price}</td>
       <td>{quantity}</td>
       <td>{total}</td>
-      <td className={classes.btn__flex}>
+      <td>
         <span>
           <button onClick={() => increment(id)} disabled={quantity === stock}>
             +
