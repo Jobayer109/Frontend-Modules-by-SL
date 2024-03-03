@@ -1,5 +1,9 @@
 * What is useEffect ?
     - এটি এমন একটি ইনভাইরনমেন্ট যেখান থেকে আমরা সরাসরি ডমের সাথে ডিল করতে পারি। 
+    - একটি কম্পোনেন্টের JSX আগে রেন্ডার হবে। তারপরে useEffect  রেন্ডার হবে। 
+    - একটি সঠিক ফাংশনাল কম্পোনেন্ট বানাতে গেলে সবসময়ই useEffect -এর দরকার পড়বে। 
+    -
+    
 
 
 `useEffect` is a Hook in React that allows you to perform side effects in function components. Side effects are operations that can affect other components and cannot be done during rendering. These include data fetching, subscriptions, or manually changing the DOM from React components. `useEffect` serves as a replacement for lifecycle methods such as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` in class components, providing a unified API to handle side effects in function components.
