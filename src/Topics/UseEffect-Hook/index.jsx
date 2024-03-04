@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import AjaxWithUseEffect from "./AJAX/Ajax";
 
 const UseEffectHook = () => {
   const [count, setCount] = useState(0);
@@ -34,6 +35,9 @@ const UseEffectHook = () => {
       <button disabled={lock} onClick={() => setCount(count + 1)}>
         Increment {`(${timeCount})`}
       </button>
+      <hr />
+      <hr />
+      <AjaxWithUseEffect />
     </div>
   );
 };
